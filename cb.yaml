@@ -26,6 +26,7 @@ steps:
       pwd
       git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq  > a.txt
       cat a.txt
+      echo changes
       changes=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
       echo $changes
 
