@@ -23,8 +23,7 @@ steps:
       echo hi
       echo $COMMIT_SHA
       pwd
-      ls -a
-      git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq 
+      git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq  > a.txt
       cat a.txt
       changes=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
       echo $changes
