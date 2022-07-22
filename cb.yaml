@@ -16,10 +16,6 @@
 steps:
 
   - name: 'gcr.io/cloud-builders/git'
-    args: ['fetch', '--unshallow']
-
-  # Run lintersfolders=`git diff --name-only 24999524b205052c883d910ad3f5a83fcdab080c | sort -u | grep $1 | awk 'BEGIN {FS="/"} {print $2}'
-  - name: 'gcr.io/cloud-builders/git'
     entrypoint: /bin/bash
     args: 
     - -c
