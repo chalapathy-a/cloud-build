@@ -29,7 +29,15 @@ steps:
       echo len 
       for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
       echo hi
+      echo "Saving to file"
+      git --no-pager diff --name-only HEAD^ HEAD | grep "/" | cut -d/ -f1 | sort | uniq > /workspace/diff.txt
 
-  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: /bin/bash
+    args: 
+    - -c
+    - |
+       echo "Then we saved " $(cat /workspace/diff.txt)
+
 options:
  logging: CLOUD_LOGGING_ONLY
