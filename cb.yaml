@@ -29,14 +29,13 @@ steps:
       echo changes
       echo size
       echo "${#changes[@]}"
-      echo $changes
+      len=${#changes[@]}
+      for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
       echo hi
       echo $COMMIT_SHA
-      git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq  > a.txt
-      cat a.txt
       echo `git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
       echo new
-      c = `git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
+      c=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
       echo size
       echo "${#c[@]}"
 
