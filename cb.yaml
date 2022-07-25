@@ -30,6 +30,8 @@ steps:
       echo size
       echo "${#changes[@]}"
       len=${#changes[@]}
+      echo len 
+      echo ${changes[0]}
       for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
       echo hi
       echo $COMMIT_SHA
