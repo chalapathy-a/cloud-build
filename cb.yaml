@@ -42,10 +42,9 @@ steps:
        do 
        echo $line; 
        echo "Building $line ... "
-       (
-        config="${line}cloudbuild.yaml"
-        gcloud builds submit $line --config=${config}
-       ) &
+       config="${line}cloudbuild.yaml"
+       echo $config
+       gcloud builds submit $line --config=${config}
        done < /workspace/diff.txt
 
 
