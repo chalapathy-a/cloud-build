@@ -25,10 +25,10 @@ steps:
       git  log
       echo log
       changes=`git --no-pager diff --name-only HEAD^ HEAD | grep "/" | cut -d/ -f1 | sort | uniq`
-      echo hi
+      len=${#changes[@]}
+      echo len 
       for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
       echo hi
-      echo $COMMIT_SHA
 
   
 options:
