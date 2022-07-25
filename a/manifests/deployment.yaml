@@ -1,27 +1,41 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
- name: the-deployment
- labels:
-   deployment: demo
+
+  name: nginx-deployment
+
+  labels:
+
+    app: nginx
+
 spec:
+
+  replicas: 3
+
   selector:
-      matchLabels:
-      deployment: demo
-  replicas: 1
+
+    matchLabels:
+
+      app: nginx
+
   template:
+
     metadata:
+
       labels:
-        deployment: demo
+
+        app: nginx
+
     spec:
+
       containers:
-      - name: the-container
-        image: annabaker/kustomize-demo-app:latest
+
+      - name: nginx
+
+        image: nginx:1.14.2
+
         ports:
-        - containerPort: 8080
-        env:
-        - name: MY_MYSQL_DB
-          valueFrom:
-            configMapKeyRef:
-              name: the-map
-              key: mysqlDB
+
+        - containerPort: 80
