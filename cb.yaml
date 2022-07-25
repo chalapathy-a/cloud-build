@@ -38,7 +38,14 @@ steps:
     - -c
     - |
        echo "Then we saved " $(cat /workspace/diff.txt)
-       while read line; do echo $line; done < /workspace/diff.txt
+       while read line
+       do 
+       echo $line; 
+       echo "Building $line ... "
+       (
+        gcloud builds submit $line --config=${config}
+       ) &
+       done < /workspace/diff.txt
 
 
 options:
