@@ -45,7 +45,7 @@ steps:
        config="${line}/cloudbuild.yaml"
        echo $config
        if [[ ! -f "${config}" ]]; then
-        ech0 "no such file"
+        echo "no such file"
         continue
        fi
        gcloud builds submit $line --config=${config}
