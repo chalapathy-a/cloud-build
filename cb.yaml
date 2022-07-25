@@ -20,7 +20,7 @@ steps:
     args: 
     - -c
     - |
-      git fetch --depth=1 origin main
+      git fetch --depth=2 origin main
       echo hello
       git  log
       echo log
