@@ -23,13 +23,6 @@ steps:
       git fetch --depth=2 origin main
       echo hello
       git  log
-      echo log
-      changes=`git --no-pager diff --name-only HEAD^ HEAD | grep "/" | cut -d/ -f1 | sort | uniq`
-      len=${#changes[@]}
-      echo len 
-      for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
-      echo hi
-      echo "Saving to file"
       git --no-pager diff --name-only HEAD^ HEAD | grep "/" | cut -d/ -f1 | sort | uniq > /workspace/diff.txt
 
   - name: 'gcr.io/cloud-builders/gcloud'
