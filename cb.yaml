@@ -25,27 +25,10 @@ steps:
       git  log
       echo log
       changes=`git --no-pager diff --name-only HEAD^ HEAD | grep "/" | cut -d/ -f1 | sort | uniq`
-      echo changes
-      echo size
-      echo "${#changes[@]}"
-      len=${#changes[@]}
-      echo len 
-      echo ${changes[0]}
+      echo hi
       for (( i=0; i<$len; i++ )); do echo "${changes[$i]}" ; done
       echo hi
       echo $COMMIT_SHA
-      echo `git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
-      echo new
-      c=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
-      echo size
-      echo "${#c[@]}"
-      echo changessss
-      for change in $changes; do
-      if [ -d "$change" ]; then
-          echo $change
-          microservices+=($change)
-      fi
-      done
 
   
 options:
