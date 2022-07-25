@@ -42,8 +42,12 @@ steps:
        do 
        echo $line; 
        echo "Building $line ... "
-       config="${line}cloudbuild.yaml"
+       config="${line}/cloudbuild.yaml"
        echo $config
+       if [[ ! -f "${config}" ]]; then
+        ech0 "no such file"
+        continue
+       fi
        gcloud builds submit $line --config=${config}
        done < /workspace/diff.txt
 
