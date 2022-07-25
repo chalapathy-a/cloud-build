@@ -21,15 +21,13 @@ steps:
     - -c
     - |
       git fetch --depth=1 origin main
+      echo hello
       git --no-pager diff --name-only origin/main HEAD
+      changes=`git --no-pager diff --name-only origin/main HEAD`
       echo hi
       echo $COMMIT_SHA
       pwd
-      git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq  > a.txt
-      cat a.txt
       echo changes
-      changes=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
-      echo $changes
 
   
 options:
