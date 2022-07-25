@@ -27,7 +27,7 @@ steps:
       echo hi
       echo $COMMIT_SHA
       pwd
-      echo changes
+      echo $changes
 
   
 options:
