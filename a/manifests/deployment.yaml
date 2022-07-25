@@ -5,6 +5,9 @@ metadata:
  labels:
    deployment: demo
 spec:
+  selector:
+      matchLabels:
+      deployment: demo
   replicas: 1
   template:
     metadata:

@@ -11,6 +11,9 @@ spec:
       labels:
         deployment: demo
     spec:
+      selector:
+        matchLabels:
+        deployment: demo
       containers:
       - name: the-container
         image: annabaker/kustomize-demo-app:latest
