@@ -20,7 +20,8 @@ steps:
     args: 
     - -c
     - |
-      git checkout
+      git fetch --depth=1 origin main
+      git --no-pager diff --name-only origin/main HEAD
       echo hi
       echo $COMMIT_SHA
       pwd
