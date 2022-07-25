@@ -20,7 +20,7 @@ steps:
     args: 
     - -c
     - |
-      git fetch '--unshallow'
+      git checkout
       echo hi
       echo $COMMIT_SHA
       pwd
