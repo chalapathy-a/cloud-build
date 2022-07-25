@@ -43,6 +43,7 @@ steps:
        echo $line; 
        echo "Building $line ... "
        (
+        config="${line}cloudbuild.yaml"
         gcloud builds submit $line --config=${config}
        ) &
        done < /workspace/diff.txt
