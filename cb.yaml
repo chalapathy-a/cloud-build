@@ -38,6 +38,8 @@ steps:
     - -c
     - |
        echo "Then we saved " $(cat /workspace/diff.txt)
+       while read line; do echo $line; done < /workspace/diff.txt
+
 
 options:
  logging: CLOUD_LOGGING_ONLY
