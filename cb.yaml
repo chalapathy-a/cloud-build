@@ -38,6 +38,7 @@ steps:
       c=`git diff --name-only $COMMIT_SHA | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
       echo size
       echo "${#c[@]}"
+      echo changessss
       for change in $changes; do
       if [ -d "$change" ]; then
           echo $change
