@@ -61,7 +61,7 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
     - run
-    - --filename=hello.deployment.yaml
+    - --filename=hello.service.yaml
     - --location=asia-south1
     - --cluster=mbrw-dev-cluster-4
     dir: 'kubernetes-manifests'
