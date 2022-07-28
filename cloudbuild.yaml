@@ -61,9 +61,10 @@ steps:
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
     - run
-    - --filename=kubernetes-manifests/hello.deployment.yaml
+    - --filename=hello.deployment.yaml
     - --location=asia-south1
     - --cluster=mbrw-dev-cluster-4
+    dir: 'kubernetes-manifests'
 
 substitutions:
     _SERVICE_URL: https://voucher-server-hobr26cxda-el.a.run.app/
