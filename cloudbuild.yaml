@@ -63,7 +63,7 @@ steps:
     - run
     - --filename=hello.service.yaml
     - --location=asia-south1
-    - --cluster=hbl-poc-mb-rw-dm-cluster
+    - --cluster=mbrw-dev-cluster-4
     dir: 'kubernetes-manifests'
 
 substitutions:
